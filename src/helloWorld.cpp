@@ -60,7 +60,9 @@ void displayMenu()
 
 void dice()
 {
-    cout << endl << rand()% 6+1 << endl;
+    cout << " --- " << endl;
+    cout << "|" << rand()% 6+1 << "|" << endl;
+    cout << " --- " << endl;
     displayMenu();
 }
 

@@ -12,6 +12,8 @@ void instructions();
 void menu();
 void UStoMEX(double MEXcurrency);
 void MEXtoUS(double UScurrency);
+void YENtoUS(double UScurrency);
+void UStoYEN(double YENcurrency);
 void exit();
 
 int main() {
@@ -161,7 +163,9 @@ void menu()
     cout << "\n\nPlease pick an option" <<endl;
     cout << "1. Convert from US dollars to MEX pesos" <<endl;
     cout << "2. Convert from MEX pesos to US dollars" << endl;
-    cout << "3. exit" <<endl;
+    cout << "3. Convert from JPN yen to US dollars" << endl;
+    cout << "4. Convert from US dollar to JPN yen" << endl;
+    cout << "5. exit" <<endl;
 
     while(true){
     cin >> options;
@@ -178,6 +182,16 @@ void menu()
         MEXtoUS(money);
         break;
     case 3:
+        cout << "\n\nPut in the amount you are going to be converting: ";
+        cin >> money;
+        YENtoUS(money);
+        break;
+    case 4:
+        cout << "\n\nPut in the amount you are going to be converting: ";
+        cin >> money;
+        UStoYEN(money);
+        break;
+    case 5:
         system("cls");
         displayMenu();
         break;
@@ -201,5 +215,21 @@ void MEXtoUS(double UScurrency)
     double dollars;
     dollars = UScurrency/19.96;
     cout << "The conversion is: " << dollars << " dollars";
+    menu();
+}
+
+void UStoYEN(double YENcurrency)
+{
+    float yen;
+    yen = YENcurrency * 114.25;
+    cout << "The conversions is: " << yen << " yen";
+    menu();
+}
+
+void YENtoUS(double UScurrency)
+{
+    double dollars;
+    dollars = UScurrency / 114.25;
+    cout << "The conversions is: " << dollars << " dollars";
     menu();
 }

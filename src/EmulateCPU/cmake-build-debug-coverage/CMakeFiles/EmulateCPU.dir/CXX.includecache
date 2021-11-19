@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+Z:/Programs/Applications/CLion/Projects/EmulateCPU/main.cpp
+stdio.h
+-
+stdlib.h
+-
+iostream
+-
+

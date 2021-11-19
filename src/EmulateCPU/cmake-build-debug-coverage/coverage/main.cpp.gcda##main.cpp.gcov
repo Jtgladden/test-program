@@ -1,0 +1,106 @@
+        -:    0:Source:Z:/Programs/Applications/CLion/Projects/EmulateCPU/main.cpp
+        -:    0:Graph:Z:\Programs\Applications\CLion\Projects\EmulateCPU\cmake-build-debug-coverage\CMakeFiles\EmulateCPU.dir\main.cpp.gcno
+        -:    0:Data:Z:\Programs\Applications\CLion\Projects\EmulateCPU\cmake-build-debug-coverage\CMakeFiles\EmulateCPU.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:using Byte = unsigned char;
+        -:    5:using Word = unsigned short;
+        -:    6:
+        -:    7:using u32 = unsigned int;
+        -:    8:
+        -:    9:struct Mem
+        -:   10:{
+        -:   11:    static constexpr u32 MAX_MEM = 1024 * 64;
+        -:   12:    Byte Data[MAX_MEM];
+        -:   13:
+        1:   14:    void Initialize()
+        -:   15:    {
+    65537:   16:        for (u32 i = 0; i < MAX_MEM; i++)
+        1:   16-block  0
+    65537:   16-block  1
+    65536:   17:            Data[i] = 0;
+    65536:   17-block  0
+        1:   18:    }
+        -:   19:
+        -:   20:    //read 1 byte
+        2:   21:    Byte operator[](u32 Address) const
+        -:   22:    {
+        -:   23:        //Assert here Address is < MAX_MEM
+        2:   24:        return Data[Address];
+        2:   24-block  0
+        -:   25:    }
+        -:   26:};
+        -:   27:
+        -:   28:struct CPU
+        -:   29:{
+        -:   30: Word PC; //program counter
+        -:   31:    Word SP; //stack pointer
+        -:   32:
+        -:   33:    Byte A, X, Y; // registers
+        -:   34:
+        -:   35:    Byte C : 1; //status flag
+        -:   36:    Byte Z : 1; //status flag
+        -:   37:    Byte I : 1; //status flag
+        -:   38:    Byte D : 1; //status flag
+        -:   39:    Byte B : 1; //status flag
+        -:   40:    Byte V : 1; //status flag
+        -:   41:    Byte N : 1; //status flag
+        -:   42:
+        1:   43:    void reset(Mem& memory)
+        -:   44:    {
+        1:   45:        PC = 0xFFFC;
+        1:   46:        SP = 0x0100;
+        1:   47:        C = Z = I = D = B = V = N = 0;
+        1:   48:        A = X = Y = 0;
+        1:   49:        memory.Initialize();
+        1:   49-block  0
+        1:   50:    }
+        -:   51:
+        2:   52:    Byte FetchByte(u32& Cycles, Mem& memory)
+        -:   53:    {
+        2:   54:        Byte Data = memory[PC];
+        2:   54-block  0
+        2:   55:        PC++;
+        2:   56:        Cycles--;
+        2:   57:        return Data;
+        -:   58:    }
+        -:   59:    //opcodes
+        -:   60:    static constexpr Byte
+        -:   61:        INS_LDS_IM = 0xA9;
+        -:   62:
+        3:   63:    void Execute(u32 Cycles, Mem& memory)
+        -:   64:    {
+        3:   65:        while (Cycles > 0)
+        3:   65-block  0
+        2:   65-block  1
+        -:   66:        {
+        2:   67:            Byte Ins = FetchByte(Cycles, memory);
+        2:   67-block  0
+        2:   68:            switch(Ins)
+        -:   69:            {
+    #####:   70:                case INS_LDS_IM:
+        -:   71:                {
+        -:   72:                    Byte Value =
+    #####:   73:                            FetchByte(Cycles, memory);
+    %%%%%:   73-block  0
+    #####:   74:                    A = Value;
+    #####:   75:                    Z = (A==0);
+    #####:   76:                    N = (A & 0b10000000) > 0;
+    #####:   77:                } break;
+        -:   78:            }
+        -:   79:        }
+        1:   80:    }
+        -:   81:
+        -:   82:};
+        -:   83:
+        1:   84:int main() {
+        -:   85:    Mem mem;
+        -:   86:    CPU cpu;
+        1:   87:    cpu.reset(mem);
+        1:   87-block  0
+        1:   88:    cpu.Execute(2, mem);
+        1:   89:    return 0;
+        -:   90:}

@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/CMakeFiles/googletest-populate.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build.rule"
+		},
+		{
+			"file" : "Z:/Programs/Applications/CLion/Projects/EmulateCPU/cmake-build-release/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

@@ -1,0 +1,3 @@
+"Z:\Programs\Applications\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\EmulateCPU.dir/objects.a
+Z:\Programs\Applications\CodeBlocks\MinGW\bin\ar.exe cr CMakeFiles\EmulateCPU.dir/objects.a @CMakeFiles\EmulateCPU.dir\objects1.rsp
+Z:\Programs\Applications\CodeBlocks\MinGW\bin\g++.exe --coverage -g   -Wl,--whole-archive CMakeFiles\EmulateCPU.dir/objects.a -Wl,--no-whole-archive  -o EmulateCPU.exe -Wl,--out-implib,libEmulateCPU.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\EmulateCPU.dir\linklibs.rsp
